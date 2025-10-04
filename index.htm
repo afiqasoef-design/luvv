@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2 Months Together!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f1e8 0%, #f8f4eb 100%);
+            color: #5a4c3e;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: rgba(255, 253, 248, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4a574, #e8c9a9, #d4a574);
+        }
+        
+        h1 {
+            color: #b08d6e;
+            margin-bottom: 25px;
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .heart {
+            color: #d4a574;
+            font-size: 2rem;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .message {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin: 25px 0;
+            padding: 25px;
+            background-color: rgba(248, 244, 235, 0.7);
+            border-radius: 15px;
+            border-left: 4px solid #d4a574;
+            text-align: center;
+            font-style: italic;
+            color: #6d5c47;
+        }
+        
+        .romantic-element {
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f4eb, #e8d9c7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .love-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #8a7866;
+            margin-bottom: 15px;
+        }
+        
+        .photo-section {
+            margin: 30px 0;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .image-success {
+            background-color: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .success-text {
+            color: #2e7d32;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .instruction {
+            color: #4caf50;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .photo-frame {
+            width: 100%;
+            max-width: 700px;
+            height: 500px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 8px solid #e8d9c7;
+            position: relative;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .couple-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .photo-frame:hover .couple-photo {
+            transform: scale(1.08);
+        }
+        
+        .photo-caption {
+            margin-top: 20px;
+            font-style: italic;
+            color: #8a7866;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+        
+        .interactive {
+            margin: 30px 0;
+        }
+        
+        button {
+            background-color: #d4a574;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin: 10px;
+        }
+        
+        button:hover {
+            background-color: #c1915e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .hidden-message {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f8f4eb;
+            border-radius: 12px;
+            font-style: normal;
+            border: 1px dashed #d4a574;
+            color: #5a4c3e;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #8a7866;
+            font-size: 0.9rem;
+        }
+        
+        .floating-heart {
+            position: fixed;
+            font-size: 24px;
+            color: #d4a574;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Fullscreen image modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            object-fit: contain;
+            margin-top: 5vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #d4a574;
+        }
+        
+        .click-instruction {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #b08d6e;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                max-width: 95%;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+            
+            .photo-frame {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .photo-frame {
+                height: 300px;
+                border-width: 5px;
+            }
+            
+            .photo-caption {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy 2 Months Together! <span class="heart">❤️</span></h1>
+        
+        <div class="message">
+            <p>These past two months with you have been incredible. Every moment together feels special, and I'm so grateful to have you in my life.</p>
+            <p>Here's to many more months of love and happiness!</p>
+        </div>
+        
+            <div class="photo-frame" id="photoFrame">
+                <!-- YOUR IMAGE IS NOW DISPLAYED HERE -->
+                <img src="https://i.pinimg.com/736x/3b/4b/01/3b4b019f39d867dc401969bd80493dc6.jpg" 
+                     alt="Our beautiful memory" 
+                     class="couple-photo">
+            </div>
+            
+            <div class="click-instruction">Click on the image to view it larger</div>
+        </div>
+        
+        <div class="interactive">
+            <button id="surpriseBtn">Click for a Special Message</button>
+            <button id="loveBtn">Why I Love You</button>
+            <div id="hiddenMessage" class="hidden-message">
+                You make every day brighter just by being in it. I cherish our time together and look forward to creating many more beautiful memories with you. I'm so lucky to have you!
+            </div>
+            <div id="loveMessage" class="hidden-message">
+                I love the way you laugh, the way you care, and the way you make me feel special. You've brought so much joy into my life these past two months, and I can't wait to see what our future holds together.
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with <span class="heart">❤️</span> for our 2-month anniversary</p>
+        </div>
+    </div>
+
+    <!-- Modal for fullscreen image -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Heart animation
+            const hearts = document.querySelectorAll('.heart');
+            hearts.forEach(heart => {
+                heart.addEventListener('click', function() {
+                    this.style.color = this.style.color === '#b08d6e' ? '#d4a574' : '#b08d6e';
+                    createFloatingHearts(5);
+                });
+            });
+            
+            // Surprise button
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            const loveBtn = document.getElementById('loveBtn');
+            const loveMessage = document.getElementById('loveMessage');
+            
+            surpriseBtn.addEventListener('click', function() {
+                if (hiddenMessage.style.display === 'block') {
+                    hiddenMessage.style.display = 'none';
+                    surpriseBtn.textContent = 'Click for a Special Message';
+                } else {
+                    hiddenMessage.style.display = 'block';
+                    loveMessage.style.display = 'none';
+                    surpriseBtn.textContent = 'Hide Message';
+                    loveBtn.textContent = 'Why I Love You';
+                    
+                    // Create floating hearts animation
+                    createHearts();
+                }
+            });
+            
+            loveBtn.addEventListener('click', function() {
+                if (loveMessage.style.display === 'block') {
+                    loveMessage.style.display = 'none';
+                    loveBtn.textContent = 'Why I Love You';
+                } else {
+                    loveMessage.style.display = 'block';
+                    hiddenMessage.style.display = 'none';
+                    loveBtn.textContent = 'Hide Message';
+                    surpriseBtn.textContent = 'Click for a Special Message';
+                    
+                    // Create floating hearts animation
+                    createHearts();
+                }
+            });
+            
+            // Image modal functionality
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const photoFrame = document.getElementById("photoFrame");
+            
+            photoFrame.addEventListener('click', function() {
+                modal.style.display = "block";
+                modalImg.src = document.querySelector('.couple-photo').src;
+            });
+            
+            const span = document.getElementsByClassName("close")[0];
+            
+            span.onclick = function() { 
+                modal.style.display = "none";
+            }
+            
+            modal.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+            
+            // Create floating hearts animation
+            function createHearts() {
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.innerHTML = '❤️';
+                        heart.classList.add('heart');
+                        heart.style.position = 'fixed';
+                        heart.style.left = Math.random() * 100 + 'vw';
+                        heart.style.top = '100vh';
+                        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                        heart.style.opacity = Math.random() * 0.5 + 0.5;
+                        heart.style.zIndex = '9999';
+                        heart.style.pointerEvents = 'none';
+                        
+                        document.body.appendChild(heart);
+                        
+                        // Animate the heart
+                        const animation = heart.animate([
+                            { transform: 'translateY(0)', opacity: 1 },
+                            { transform: `translateY(-${Math.random() * 100 + 100}vh)`, opacity: 0 }
+                        ], {
+                            duration: Math.random() * 3000 + 2000,
+                            easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                        });
+                        
+                        animation.onfinish = () => {
+                            heart.remove();
+                        };
+                    }, i * 200);
+                }
+            }
+            
+            // Create floating hearts around cursor
+            function createFloatingHearts(count) {
+                for (let i = 0; i < count; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.innerHTML = '❤️';
+                        heart.classList.add('floating-heart');
+                        heart.style.left = (Math.random() * 100) + 'vw';
+                        heart.style.top = (Math.random() * 100) + 'vh';
+                        heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                        heart.style.opacity = Math.random() * 0.7 + 0.3;
+                        
+                        document.body.appendChild(heart);
+                        
+                        // Animate the heart
+                        const animation = heart.animate([
+                            { transform: 'translateY(0) scale(1)', opacity: heart.style.opacity },
+                            { transform: 'translateY(-20px) scale(1.2)', opacity: 0.8 },
+                            { transform: 'translateY(-40px) scale(0.8)', opacity: 0 }
+                        ], {
+                            duration: Math.random() * 2000 + 1000,
+                            easing: 'ease-out'
+                        });
+                        
+                        animation.onfinish = () => {
+                            heart.remove();
+                        };
+                    }, i * 300);
+                }
+            }
+            
+            // Create some initial floating hearts
+            createFloatingHearts(3);
+        });
+    </script>
+</body>
+</html>
